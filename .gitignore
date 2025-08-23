@@ -1,4 +1,4 @@
 backend/venv
 keys.txt
-.env
+backend/.env
 
