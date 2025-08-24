@@ -6,7 +6,7 @@ class Recipe(db.Model):
     description = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
-        return f'<Recipe {self.name}>' 
+        return f'<Recipe {self.title}>' 
     
     def save(self):
         db.session.add(self)
@@ -18,3 +18,12 @@ class Recipe(db.Model):
         self.title = title
         self.description = description
         db.session.commit()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.username}>'
