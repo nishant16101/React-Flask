@@ -8,10 +8,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager
 from recipes import recipe_ns
 from auth import auth_ns
+from flask_cors import CORS
 
 
 
-
+app = Flask(__name__)
+CORS(app)
 
 def create_app(config):
     app = Flask(__name__)
