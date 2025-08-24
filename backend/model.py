@@ -27,3 +27,15 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username}>'
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+    def update(self,username,email,password):
+        self.username = username
+        self.email = email
+        self.password = password
+        db.session.commit()
+    
